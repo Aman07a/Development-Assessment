@@ -1,0 +1,253 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            grid-auto-columns: 1fr;
+            grid-auto-rows: 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: column;
+            grid-template-areas: "main";
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto 1fr auto;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "header header header"
+                "content content content"
+                "footer footer footer";
+            grid-area: main;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas: ".";
+            grid-area: header;
+            height: 75px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "form table"
+                "form images";
+            grid-area: content;
+        }
+
+        .form {
+            grid-area: form;
+        }
+
+        .table {
+            grid-area: table;
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas: "carousel";
+            grid-area: images;
+        }
+
+        .carousel {
+            grid-area: carousel;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas: ".";
+            grid-area: footer;
+        }
+
+        html,
+        body,
+        .main-container {
+            height: 100%;
+            margin: 0;
+        }
+
+        .view-link {
+            background-color: #3498db;
+            transition: all 0.25s ease;
+        }
+
+        .view-link:hover {
+            background-color: #2980b9;
+        }
+
+        .clouds {
+            background-color: #ecf0f1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main">
+            <div class="header p-2 border border-sky-500 clouds">
+                <h1 class="text-2xl">Development Assessment</h1>
+                <h2 class="text-xl">This is an assessment.</h2>
+                <br>
+            </div>
+            <hr>
+            <div class="content">
+                <div class="form">
+                    <div class="col-span-3 w-full h-full">
+                        <form class="user-validation flex justify-center">
+                            <div class="pl-5 grid grid-cols-1 gap-2 w-full">
+                                <div class="font-medium text-black text-xl mt-6">Add User</div>
+                                <div class="flex">
+                                    <div class="md:w-1/2">
+                                        <label class="block normal-case tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                            Name
+                                        </label>
+                                        <input type="name" class="appearance-none block w-full bg-gray-200 text-black rounded py-3 px-4 leading-tight" name="name" placeholder="Enter your name" required autocomplete="name" autofocus>
+                                    </div>
+                                    <div class="md:w-1/2 px-3">
+                                        <label class="block normal-case tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                            Email
+                                        </label>
+                                        <input type="email" class="appearance-none block w-full bg-gray-200 text-black rounded py-3 px-4 leading-tight" name="email" placeholder="Enter your email" required autocomplete="email">
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="md:w-1/2">
+                                        <label class="block normal-case tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                            Password
+                                        </label>
+                                        <input type="password" class="appearance-none block w-full bg-gray-200 text-black rounded py-3 px-4 leading-tight" name="password" placeholder="Enter your password" required autocomplete="password">
+                                    </div>
+
+                                    <div class="md:w-1/2 px-3">
+                                        <label class="block normal-case tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                            Roles (levels)
+                                        </label>
+                                        <select name="is_admin" class="appearance-none block w-full bg-gray-200 text-black rounded py-3 px-4 leading-tight" required>
+                                            <option value="0">User</option>
+                                            <option value="1">Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex pt-5">
+                                    <button type="submit" class="text-white view-link font-medium rounded-lg text-sm w-1/2 px-5 py-3 text-center">
+                                        Save User
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="col-span-3">
+                        <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
+                            <div class="sm:flex items-center justify-between">
+                                <div class="flex items-center py-1">
+                                    <div class="rounded focus:outline-none focus:ring-2 focus:bg-indigo-50 focus:ring-indigo-800">
+                                        <div class="py-2 px-0 font-medium text-black text-xl">
+                                            <p>User Overview</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-7 overflow-x-auto">
+                                <table class="w-full whitespace-nowrap">
+                                    <thead class="thead-background">
+                                        <tr tabindex="0" class="focus:outline-none h-16 border border-dark dark:border-gray-600 rounded grid grid-cols-4 justify-items-center content-center">
+                                            <td class="col-span-1">
+                                                <p class="text-base font-bold leading-none py-1 text-gray-700 dark:text-white mr-2">
+                                                    Name</p>
+                                            </td>
+                                            <td class="col-span-1">
+                                                <p class="text-base font-bold leading-none py-1 text-gray-700 dark:text-white mr-2">
+                                                    Email</p>
+                                            </td>
+                                            <td class="col-span-1">
+                                                <p class="text-base font-bold leading-none py-1 text-gray-700 dark:text-white mr-2">
+                                                    Created at</p>
+                                            </td>
+                                            <td class="col-span-1">
+                                                <p class="text-base font-bold leading-none py-1 text-gray-700 dark:text-white mr-2">
+                                                    Roles (levels)</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="h-3"></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr tabindex="0" class="focus:outline-none h-16 border border-dark dark:border-gray-600 rounded grid grid-cols-4 justify-items-center content-center">
+                                            <td class="col-span-1">
+                                                <p class="text-base font-medium leading-none py-1 text-gray-700 dark:text-white mr-2">
+                                                    Aman
+                                                </p>
+                                            </td>
+                                            <td class="col-span-1">
+                                                <p class="text-base font-medium leading-none py-1 text-gray-700 dark:text-white mr-2">
+                                                    aman@gmail.com
+                                                </p>
+                                            </td>
+                                            <td class="col-span-1">
+                                                <p class="text-base font-medium leading-none py-1 text-gray-700 dark:text-white mr-2">2-11-2022</p>
+                                            </td>
+                                            <td class="col-span-1">
+                                                <p class="text-base font-medium leading-none py-1 text-gray-700 dark:text-white mr-2">User</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="h-3"></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="images">
+                    <div class="carousel">
+                        <div class="col-span-3">
+                            <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
+                                <img src="https://raw.githubusercontent.com/Aman07a/images/main/381-700x250.jpg" alt="Random Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© Aman Ahmed 2022. All Rights Reserved.
+                    </span>
+                    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+                        <li>
+                            <a href="https://github.com/Aman07a" class="mr-4 hover:underline md:mr-6 ">GitHub</a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
